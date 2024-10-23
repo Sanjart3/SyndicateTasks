@@ -8,6 +8,7 @@ public class ResponseBuilder {
         Map<String, Object> result = new HashMap<>();
         result.put("statusCode", status);
         result.put("message", message);
+        result.put("body", status+"\n"+message);
         return result;
     }
 }
