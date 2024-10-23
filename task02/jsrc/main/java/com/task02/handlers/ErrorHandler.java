@@ -11,7 +11,7 @@ public class ErrorHandler implements Handler{
         int status = 400;
         String path = event.getRawPath();
         String method = event.getRequestContext().getHttp().getMethod();
-        String message = String.format("Bad request syntax or unsupported method. Request path: %s. HTTP method: %s",path, method);
+        String message = "{\"statusCode\": 400, \"message\": \"" + String.format( "Bad request syntax or unsupported method. Request path: %s. HTTP method: %s", path, method) + "\"}";
         return ResponseBuilder.build(status, message);
     }
 }
