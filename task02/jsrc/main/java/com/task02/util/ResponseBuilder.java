@@ -7,7 +7,7 @@ import java.util.Map;
 public class ResponseBuilder {
     public static Map<String, Object> build(int status, String message) {
         Map<String, Object> result = new LinkedHashMap<>();
-        result.put("status", status);
+        result.put("statusCode", status);
         result.put("message", message);
         return result;
     }
