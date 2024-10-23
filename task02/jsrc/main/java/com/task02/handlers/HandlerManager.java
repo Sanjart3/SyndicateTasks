@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class HandlerManager {
     public Map<String, Object> handleRequest(APIGatewayV2HTTPEvent event){
-        Map<String, Object> response = new HashMap<>();
         Handler handler;
         if (getMethod(event).equals("GET")&&getPath(event).equals("/hello")) {
             handler = new HelloHandler();
