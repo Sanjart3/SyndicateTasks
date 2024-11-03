@@ -26,7 +26,9 @@
     "tags": {}
   },
   "sqs_handler-role": {
-    "predefined_policies": [],
+    "predefined_policies": [
+      "AWSLambdaSQSQueueExecutionRole"
+    ],
     "principal_service": "lambda",
     "custom_policies": [
       "lambda-basic-execution"
@@ -35,7 +37,7 @@
     "tags": {}
   },
   "async_queue": {
-    "resource_type": "async_queue",
+    "resource_type": "sqs_queue",
     "fifo_queue": false,
     "visibility_timeout": 30,
     "delay_seconds": 0,
@@ -45,6 +47,21 @@
     "policy": {},
     "redrive_policy": {},
     "content_based_deduplication": false,
+    "tags": {}
+  },
+  "sns_handler-role": {
+    "predefined_policies": [],
+    "principal_service": "lambda",
+    "custom_policies": [
+      "lambda-basic-execution"
+    ],
+    "resource_type": "iam_role",
+    "tags": {}
+  },
+  "lambda_topic": {
+    "resource_type": "sns_topic",
+    "region": "eu-central-1",
+    "event_sources": [],
     "tags": {}
   }
 }
