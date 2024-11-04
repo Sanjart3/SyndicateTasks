@@ -32,7 +32,7 @@ public class UuidGenerator implements RequestHandler<Object, String> {
 	private static final AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
 			.withRegion(System.getenv("region")).build();
 	private static final ObjectMapper objectMapper = new ObjectMapper();
-	private static final String S3_BUCKET = "cmtr-cbad4ace-uuid-storage-test";
+	private static final String S3_BUCKET = "uuid-storage";
 
 	public String handleRequest(Object request, Context context) {
 		LambdaLogger logger = context.getLogger();
