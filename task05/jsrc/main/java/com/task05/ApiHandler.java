@@ -27,7 +27,7 @@ import org.json.JSONObject;
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
 @EnvironmentVariables(value = {
-		@EnvironmentVariable(key = "table", value = "${target_table}"),
+		@EnvironmentVariable(key = "table", value = "Events"),
 		@EnvironmentVariable(key = "region", value = "${region}"),
 })
 public class ApiHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {

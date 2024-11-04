@@ -15,9 +15,13 @@
     "security_group_ids" : [ ],
     "dependencies" : [ ],
     "event_sources" : [ ],
-    "env_variables" : { },
+    "env_variables" : {
+      "region" : "${region}",
+      "table" : "Events"
+    },
     "tags" : { },
-    "publish_version" : false,
+    "publish_version" : true,
+    "alias" : "learn",
     "logs_expiration" : "${logs_expiration}",
     "snap_start" : "None"
   }
