@@ -24,7 +24,7 @@
     } ],
     "env_variables" : {
       "region" : "${region}",
-      "table" : "cmtr-2cd95cf2-Audit-test"
+      "table" : "Audit"
     },
     "tags" : { },
     "publish_version" : true,

@@ -29,7 +29,7 @@ import java.util.Map;
 )
 @EnvironmentVariables(value = {
 		@EnvironmentVariable(key = "region", value = "${region}"),
-		@EnvironmentVariable(key = "table", value = "cmtr-2cd95cf2-Audit-test")
+		@EnvironmentVariable(key = "table", value = "Audit")
 })
 public class AuditProducer implements RequestHandler<DynamodbEvent, Map<String, Object>> {
 
