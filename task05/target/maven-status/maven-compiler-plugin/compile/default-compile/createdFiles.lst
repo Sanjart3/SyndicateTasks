@@ -1,7 +1,2 @@
-com/task05/entity/ResponseBody.class
-com/task05/service/impl/EventServiceImpl.class
+com/task05/ApiGatewayEvent.class
 com/task05/ApiHandler.class
-com/task05/util/TimeUtil.class
-com/task05/entity/Event.class
-com/task05/service/EventService.class
-com/task05/util/JsonUtil.class
