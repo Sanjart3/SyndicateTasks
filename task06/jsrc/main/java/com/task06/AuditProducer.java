@@ -5,6 +5,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.DynamodbEvent;
 import com.syndicate.deployment.annotations.environment.EnvironmentVariable;
 import com.syndicate.deployment.annotations.environment.EnvironmentVariables;
+import com.syndicate.deployment.annotations.events.DynamoDbTriggerEventSource;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
 import com.syndicate.deployment.model.DeploymentRuntime;
 import com.syndicate.deployment.model.RetentionSetting;
@@ -22,7 +23,10 @@ import java.util.Map;
 	aliasName = "learn",
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
-
+@DynamoDbTriggerEventSource(
+		targetTable = "Configuration",
+		batchSize = 10
+)
 @EnvironmentVariables(value = {
 		@EnvironmentVariable(key = "region", value = "${region}"),
 		@EnvironmentVariable(key = "table", value = "cmtr-2cd95cf2-Audit-test")
