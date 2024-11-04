@@ -7,6 +7,7 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent
 import com.syndicate.deployment.annotations.environment.EnvironmentVariable;
 import com.syndicate.deployment.annotations.environment.EnvironmentVariables;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
+import com.syndicate.deployment.model.Architecture;
 import com.syndicate.deployment.model.RetentionSetting;
 import com.task05.entity.Event;
 import com.task05.entity.ResponseBody;
@@ -20,6 +21,7 @@ import org.json.JSONObject;
 @LambdaHandler(
     lambdaName = "api_handler",
 	roleName = "api_handler-role",
+	architecture = Architecture.X86_64,
 	isPublishVersion = true,
 	aliasName = "learn",
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
