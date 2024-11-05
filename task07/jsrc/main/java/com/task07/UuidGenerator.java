@@ -15,7 +15,10 @@ import com.syndicate.deployment.model.RetentionSetting;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @LambdaHandler(
@@ -62,8 +65,12 @@ public class UuidGenerator implements RequestHandler<Object, String> {
 		amazonS3.putObject(new PutObjectRequest(S3_BUCKET, fileName, contentsAsStream, md));
 	}
 
-	LocalDate getNow(){
-		return LocalDate.now();
+	String getNow(){
+		Instant now = Instant.now();
+		ZonedDateTime utcDateTime = now.atZone(ZoneOffset.UTC);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+
+		return utcDateTime.format(formatter);
 	}
 
 	private Map<String, List<String>> generateFileData(){
