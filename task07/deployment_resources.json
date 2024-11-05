@@ -44,7 +44,8 @@
     "predefined_policies": [],
     "principal_service": "lambda",
     "custom_policies": [
-      "lambda-basic-execution"
+      "lambda-basic-execution",
+      "PutFilesToS3"
     ],
     "resource_type": "iam_role",
     "tags": {}
@@ -52,6 +53,7 @@
   "uuid-storage": {
     "resource_type": "s3_bucket",
     "acl": "private",
+    "location": "eu-central-1",
     "cors": [],
     "policy": {},
     "public_access_block": {
@@ -65,6 +67,7 @@
   "uuid_trigger": {
     "resource_type": "cloudwatch_rule",
     "rule_type": "schedule",
+    "region": "eu-central-1",
     "tags": {},
     "expression": "rate(1 minute)"
   }
