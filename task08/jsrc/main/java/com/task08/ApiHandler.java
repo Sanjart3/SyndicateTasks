@@ -13,8 +13,6 @@ import com.syndicate.deployment.model.RetentionSetting;
 import com.syndicate.deployment.model.lambda.url.AuthType;
 import com.syndicate.deployment.model.lambda.url.InvokeMode;
 
-import java.io.IOException;
-
 @LambdaHandler(
     lambdaName = "api_handler",
 	roleName = "api_handler-role",

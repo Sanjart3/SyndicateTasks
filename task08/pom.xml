@@ -34,8 +34,8 @@
 
         <!--Open-meteo-->
         <dependency>
-            <groupId>com.open_meteo</groupId>
-            <artifactId>open_meteo_api</artifactId>
+            <groupId>org.sts</groupId>
+            <artifactId>open-meteo-sdk</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/open-meteo-sdk-1.0.1.jar</systemPath>
