@@ -40,8 +40,8 @@
 
         <!--Open-meteo-->
         <dependency>
-            <groupId>org.sts</groupId>
-            <artifactId>open-meteo-sdk</artifactId>
+            <groupId>task08-group</groupId>
+            <artifactId>task08</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/task08-1.0.0.jar</systemPath>
