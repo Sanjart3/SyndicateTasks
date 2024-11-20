@@ -40,11 +40,11 @@
 
         <!--Open-meteo-->
         <dependency>
-            <groupId>task08-group</groupId>
-            <artifactId>task08</artifactId>
+            <groupId>com.open_meteo</groupId>
+            <artifactId>open_meteo_api</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/task08-1.0.0.jar</systemPath>
+            <systemPath>${basedir}/lib/open-meteo-1.0.1.jar</systemPath>
         </dependency>
     </dependencies>
 

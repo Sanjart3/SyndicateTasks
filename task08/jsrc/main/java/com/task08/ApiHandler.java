@@ -1,5 +1,6 @@
 package com.task08;
 
+import com.open_meteo.OpenMeteoAPI;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
@@ -36,9 +37,9 @@ import com.syndicate.deployment.model.lambda.url.InvokeMode;
 public class ApiHandler implements RequestHandler<Object, String> {
 
 	public String handleRequest(Object request, Context context) {
-		OpenMeteoClient api = new OpenMeteoClient();
+		OpenMeteoAPI api = new OpenMeteoAPI();
 		try {
-			return api.getWeatherForecast();
+			return String.valueOf(api.getWeatherForecast());
 		} catch (Exception e) {
 			return e.getMessage();
 		}
