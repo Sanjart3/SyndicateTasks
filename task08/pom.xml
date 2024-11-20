@@ -31,6 +31,12 @@
             <artifactId>deployment-configuration-annotations</artifactId>
             <version>${syndicate.java.plugin.version}</version>
         </dependency>
+        <!--Json-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
 
         <!--Open-meteo-->
         <dependency>
@@ -38,7 +44,7 @@
             <artifactId>open-meteo-sdk</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/open-meteo-sdk-1.0.1.jar</systemPath>
+            <systemPath>${basedir}/lib/task08-1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
 
