@@ -32,7 +32,7 @@
     "runtimes" : [ "java17" ],
     "resource_type" : "lambda_layer",
     "deployment_package" : "api-layer-assembly.zip",
-    "libraries" : [ "lib/open-meteo-sdk-1.0.1.jar" ],
+    "libraries" : [ "lib/open-meteo-1.0.1.jar" ],
     "architectures" : [ "arm64" ]
   }
 }

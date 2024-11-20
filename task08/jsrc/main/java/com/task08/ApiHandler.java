@@ -24,7 +24,7 @@ import com.syndicate.deployment.model.lambda.url.InvokeMode;
 
 @LambdaLayer(
 		layerName = "api-layer",
-		libraries = {"lib/open-meteo-sdk-1.0.1.jar"},
+		libraries = {"lib/open-meteo-1.0.1.jar"},
 		runtime = DeploymentRuntime.JAVA17,
 		architectures = {Architecture.ARM64},
 		artifactExtension = ArtifactExtension.ZIP
