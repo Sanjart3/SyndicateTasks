@@ -15,10 +15,7 @@ import com.syndicate.deployment.model.RetentionSetting;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @LambdaHandler(
@@ -36,6 +33,7 @@ public class UuidGenerator implements RequestHandler<Object, String> {
 			.withRegion(System.getenv("region")).build();
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 	private static final String S3_BUCKET = "cmtr-cbad4ace-uuid-storage-test";
+	private static final int NUMBER_OF_IDS = 10;
 
 	public String handleRequest(Object request, Context context) {
 		LambdaLogger logger = context.getLogger();
@@ -58,7 +56,7 @@ public class UuidGenerator implements RequestHandler<Object, String> {
 
 	private static void putObject(String fileData, String fileName) {
 		byte[]  contentAsBytes = fileData.getBytes(StandardCharsets.UTF_8) ;
-		ByteArrayInputStream contentsAsStream      = new ByteArrayInputStream(contentAsBytes);
+		ByteArrayInputStream contentsAsStream = new ByteArrayInputStream(contentAsBytes);
 		ObjectMetadata md = new ObjectMetadata();
 		md.setContentLength(contentAsBytes.length);
 		md.setContentType("application/json");
@@ -66,23 +64,19 @@ public class UuidGenerator implements RequestHandler<Object, String> {
 	}
 
 	String getNow(){
-		Instant now = Instant.now();
-		ZonedDateTime utcDateTime = now.atZone(ZoneOffset.UTC);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX");
-
-		return utcDateTime.format(formatter);
+		return LocalDateTime.now().toString();
 	}
 
 	private Map<String, List<String>> generateFileData(){
 		Map<String, List<String>> fileData = new HashMap<>();
-		fileData.put("ids", generateUuids(10));
+		fileData.put("ids", generateUuids());
 
 		return fileData;
 	}
 
-	List<String> generateUuids(int count){
+	List<String> generateUuids(){
 		List<String> uuids = new ArrayList<>();
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < NUMBER_OF_IDS; i++) {
 			uuids.add(UUID.randomUUID().toString());
 		}
 

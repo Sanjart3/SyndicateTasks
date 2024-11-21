@@ -14,8 +14,7 @@
             "dynamodb:DeleteItem",
             "ssm:PutParameter",
             "ssm:GetParameter",
-            "kms:Decrypt",
-            "s3:*"
+            "kms:Decrypt"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -26,7 +25,7 @@
     "resource_type": "iam_policy",
     "tags": {}
   },
-  "uuid_generator-role": {
+  "processor-role": {
     "predefined_policies": [],
     "principal_service": "lambda",
     "custom_policies": [
@@ -35,25 +34,14 @@
     "resource_type": "iam_role",
     "tags": {}
   },
-  "uuid-storage": {
-    "resource_type": "s3_bucket",
-    "acl": "private",
-    "location": "eu-central-1",
-    "cors": [],
-    "policy": {},
-    "public_access_block": {
-      "block_public_acls": true,
-      "ignore_public_acls": true,
-      "block_public_policy": true,
-      "restrict_public_buckets": true
-    },
+  "Weather": {
+    "resource_type": "dynamodb_table",
+    "hash_key_name": "id",
+    "hash_key_type": "S",
+    "read_capacity": 1,
+    "write_capacity": 1,
+    "global_indexes": [],
+    "autoscaling": [],
     "tags": {}
-  },
-  "uuid_trigger": {
-    "resource_type": "cloudwatch_rule",
-    "rule_type": "schedule",
-    "region": "eu-central-1",
-    "tags": {},
-    "expression": "rate(1 minute)"
   }
 }

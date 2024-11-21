@@ -1,0 +1,40 @@
+{
+  "processor" : {
+    "name" : "processor",
+    "lambda_path" : "/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task09",
+    "version" : "1.0.0",
+    "func_name" : "com.task09.Processor",
+    "deployment_package" : "task09-1.0.0.jar",
+    "resource_type" : "lambda",
+    "runtime" : "java17",
+    "architectures" : [ "x86_64" ],
+    "iam_role_name" : "processor-role",
+    "memory" : 1024,
+    "timeout" : 300,
+    "subnet_ids" : [ ],
+    "security_group_ids" : [ ],
+    "dependencies" : [ {
+      "resource_name" : "Weather",
+      "resource_type" : "dynamodb_table"
+    } ],
+    "event_sources" : [ ],
+    "env_variables" : {
+      "target_table" : "{target_table}",
+      "region" : "{region}"
+    },
+    "tags" : { },
+    "publish_version" : true,
+    "alias" : "learn",
+    "layers" : [ "api-layer" ],
+    "logs_expiration" : "${logs_expiration}",
+    "snap_start" : "None"
+  },
+  "api-layer" : {
+    "name" : "api-layer",
+    "runtimes" : [ "java17" ],
+    "resource_type" : "lambda_layer",
+    "deployment_package" : "api-layer-assembly.zip",
+    "libraries" : [ "lib/open-meteo-1.0.1.jar" ],
+    "architectures" : [ "arm64" ]
+  }
+}
