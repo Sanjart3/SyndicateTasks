@@ -34,8 +34,8 @@ import java.util.Map;
 		invokeMode = InvokeMode.BUFFERED
 )
 @EnvironmentVariables({
-		@EnvironmentVariable(key = "target_table", value = "{target_table}"),
-		@EnvironmentVariable(key = "region", value = "{region}")
+		@EnvironmentVariable(key = "target_table", value = "${target_table}"),
+		@EnvironmentVariable(key = "region", value = "${region}")
 })
 @DependsOn(
 		name = "Weather",
@@ -50,7 +50,9 @@ import java.util.Map;
 )
 public class Processor implements RequestHandler<Object, String> {
 
-	private final AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.defaultClient();
+	private final AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.standard()
+			.withRegion(System.getenv("region"))
+			.build();
 	private final String table = System.getenv("target_table");
 
 	public String handleRequest(Object request, Context context) {
