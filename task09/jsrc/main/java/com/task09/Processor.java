@@ -50,9 +50,7 @@ import java.util.Map;
 )
 public class Processor implements RequestHandler<Object, String> {
 
-	private final AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.standard()
-			.withRegion(System.getenv("region"))
-			.build();
+	private final AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.defaultClient();
 	private final String table = System.getenv("target_table");
 
 	public String handleRequest(Object request, Context context) {
