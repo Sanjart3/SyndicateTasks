@@ -18,17 +18,20 @@ import com.syndicate.deployment.model.lambda.url.AuthType;
 import com.syndicate.deployment.model.lambda.url.InvokeMode;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @LambdaHandler(
-    lambdaName = "processor",
-	roleName = "processor-role",
-	isPublishVersion = true,
-	aliasName = "learn",
-	runtime = DeploymentRuntime.JAVA17,
-	layers = {"api-layer"},
-	tracingMode = TracingMode.Active,
-	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
+		lambdaName = "processor",
+		roleName = "processor-role",
+		isPublishVersion = true,
+		aliasName = "learn",
+		runtime = DeploymentRuntime.JAVA17,
+		layers = {"api-layer"},
+		tracingMode = TracingMode.Active,
+		logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
+)
+@LambdaUrlConfig(
+		authType = AuthType.NONE,
+		invokeMode = InvokeMode.BUFFERED
 )
 @EnvironmentVariables({
 		@EnvironmentVariable(key = "target_table", value = "{target_table}"),
@@ -45,10 +48,6 @@ import java.util.stream.Collectors;
 		architectures = {Architecture.ARM64},
 		artifactExtension = ArtifactExtension.ZIP
 )
-@LambdaUrlConfig(
-		authType = AuthType.NONE,
-		invokeMode = InvokeMode.BUFFERED
-)
 public class Processor implements RequestHandler<Object, String> {
 
 	private final AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.standard()
@@ -62,6 +61,8 @@ public class Processor implements RequestHandler<Object, String> {
 			String weatherForecast = api.getWeatherForecast();
 			Map<String, AttributeValue> weatherEntry = JsonUtil.convertFromJsonToMap(weatherForecast);
 
+			System.out.println("Weather infos: "+weatherEntry);
+
 			dynamoDB.putItem(new PutItemRequest()
 					.withTableName(table)
 					.withItem(weatherEntry)
@@ -69,7 +70,10 @@ public class Processor implements RequestHandler<Object, String> {
 
 			return weatherEntry.toString();
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return e.getMessage();
 		}
 	}
 }
+
+
