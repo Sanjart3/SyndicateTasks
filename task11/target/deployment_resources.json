@@ -4,7 +4,7 @@
     "lambda_path" : "/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task11",
     "version" : "1.0.0",
     "func_name" : "com.task10.ApiHandler",
-    "deployment_package" : "task10-1.0.0.jar",
+    "deployment_package" : "task11-1.0.0.jar",
     "resource_type" : "lambda",
     "runtime" : "java17",
     "architectures" : [ "x86_64" ],
@@ -21,17 +21,17 @@
     "env_variables" : {
       "reservations_table" : "${reservations_table}",
       "CLIENT_ID" : {
+        "resource_type" : "cognito_idp",
         "resource_name" : "${booking_userpool}",
-        "parameter" : "client_id",
-        "resource_type" : "cognito_idp"
+        "parameter" : "client_id"
       },
       "tables_table" : "${tables_table}",
       "booking_userpool" : "${booking_userpool}",
       "region" : "${region}",
       "COGNITO_ID" : {
+        "resource_type" : "cognito_idp",
         "resource_name" : "${booking_userpool}",
-        "parameter" : "id",
-        "resource_type" : "cognito_idp"
+        "parameter" : "id"
       }
     },
     "tags" : { },
