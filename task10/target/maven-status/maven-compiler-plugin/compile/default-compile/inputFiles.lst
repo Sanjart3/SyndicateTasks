@@ -1,0 +1,16 @@
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/ApiHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/CognitoSupport.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/Handler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/RouteHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/GetReservationHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/GetTableByIdHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/GetTableHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/PostReservationHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/PostTableHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/RouteNotImplementedHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/SignInHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/handler/impl/SignUpHandler.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/model/CustomTableResponse.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/model/RouteKey.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/model/SignIn.java
+/Users/shohjahontotliboyev/Desktop/epam/internship/Serverless AWS/SyndicateTasks/task10/jsrc/main/java/com/task10/model/SignUp.java
