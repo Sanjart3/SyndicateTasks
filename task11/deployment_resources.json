@@ -7,22 +7,12 @@
             "logs:CreateLogGroup",
             "logs:CreateLogStream",
             "logs:PutLogEvents",
-            "dynamodb:GetItem",
-            "dynamodb:Query",
-            "dynamodb:PutItem",
-            "dynamodb:Batch*",
-            "dynamodb:DeleteItem",
-            "dynamodb:Scan",
-            "cognito-idp:DescribeUserPool",
-            "cognito-idp:GetUser",
-            "cognito-idp:ListUsers",
-            "cognito-idp:AdminCreateUser",
-            "cognito-idp:AdminInitiateAuth",
-            "cognito-idp:GetIdentityProviderByIdentifier",
-            "cognito-idp:ListUserPools",
-            "cognito-idp:ListUserPoolClients",
-            "cognito-idp:AdminRespondToAuthChallenge",
-            "cognito-idp:AdminConfirmSignUp"
+            "dynamodb:*",
+            "cognito-idp:*",
+            "lambda:*",
+            "ssm:PutParameter",
+            "ssm:GetParameter",
+            "kms:Decrypt"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -33,23 +23,14 @@
     "resource_type": "iam_policy",
     "tags": {}
   },
-  "api_handler-role": {
-    "predefined_policies": [],
-    "principal_service": "lambda",
-    "custom_policies": [
-      "lambda-basic-execution"
-    ],
-    "resource_type": "iam_role",
-    "tags": {}
-  },
-  "${booking_userpool}": {
+  "simple-booking-userpool": {
     "resource_type": "cognito_idp",
     "password_policy": {
       "minimum_length": 8,
-      "require_uppercase": true,
-      "require_symbols": true,
-      "require_lowercase": true,
-      "require_numbers": true
+      "require_uppercase": false,
+      "require_symbols": false,
+      "require_lowercase": false,
+      "require_numbers": false
     },
     "auto_verified_attributes": [],
     "sms_configuration": {},
@@ -64,28 +45,34 @@
         "ALLOW_USER_SRP_AUTH",
         "ALLOW_REFRESH_TOKEN_AUTH"
       ]
-    },
+    }
+  },
+  "api_handler-role": {
+    "predefined_policies": [],
+    "principal_service": "lambda",
+    "custom_policies": [
+      "lambda-basic-execution"
+    ],
+    "resource_type": "iam_role",
     "tags": {}
   },
-  "${tables_table}": {
+  "Tables": {
     "resource_type": "dynamodb_table",
     "hash_key_name": "id",
     "hash_key_type": "N",
     "read_capacity": 1,
     "write_capacity": 1,
     "global_indexes": [],
-    "autoscaling": [],
-    "tags": {}
+    "autoscaling": []
   },
-  "${reservations_table}": {
+  "Reservations": {
     "resource_type": "dynamodb_table",
     "hash_key_name": "id",
     "hash_key_type": "S",
     "read_capacity": 1,
     "write_capacity": 1,
     "global_indexes": [],
-    "autoscaling": [],
-    "tags": {}
+    "autoscaling": []
   },
   "api-ui-hoster": {
     "resource_type": "s3_bucket",
