@@ -1,9 +1,9 @@
-package com.task10.handler;
+package com.task11.handler;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.task10.handler.impl.*;
-import com.task10.model.RouteKey;
+import com.task11.handler.impl.*;
+import com.task11.model.RouteKey;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package com.task10.handler.impl;
+package com.task11.handler.impl;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.task10.handler.CognitoSupport;
-import com.task10.handler.Handler;
-import com.task10.model.SignIn;
+import com.task11.handler.CognitoSupport;
+import com.task11.handler.Handler;
+import com.task11.model.SignIn;
 import org.json.JSONObject;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 

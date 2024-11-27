@@ -1,4 +1,4 @@
-package com.task10.model;
+package com.task11.model;
 
 public class CustomTableResponse {
     private Integer id;
