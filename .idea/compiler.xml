@@ -19,8 +19,5 @@
         <module name="task11" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="task11" target="16" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -21,17 +21,17 @@
     "env_variables" : {
       "reservations_table" : "${reservations_table}",
       "CLIENT_ID" : {
-        "resource_type" : "cognito_idp",
         "resource_name" : "${booking_userpool}",
-        "parameter" : "client_id"
+        "parameter" : "client_id",
+        "resource_type" : "cognito_idp"
       },
       "tables_table" : "${tables_table}",
       "booking_userpool" : "${booking_userpool}",
       "region" : "${region}",
       "COGNITO_ID" : {
-        "resource_type" : "cognito_idp",
         "resource_name" : "${booking_userpool}",
-        "parameter" : "id"
+        "parameter" : "id",
+        "resource_type" : "cognito_idp"
       }
     },
     "tags" : { },
